@@ -37,11 +37,15 @@ public class PostController {
         return "posts/form";
     }
 
-    @PostMapping("/posts")
-    public String create(@Valid @ModelAttribute("postForm") PostForm form, BindingResult errors,
-                         @RequestParam(name = "files", required = false) List<MultipartFile> files) {
-        if (errors.hasErrors()) return "posts/form";
+    @PostMapping("/posts") // posts로 전송한 게시글 등록 요청을 처리한다.
+    // 제목과 내용을 postform에 담고 선언된 입력 조건을 검사한다.
+    public String create(@Valid @ModelAttribute("postForm") PostForm form, BindingResult errors, // 입력값 검증 결과를 받아서 저장 할 수 있을지 판단한다.
+                         @RequestParam(name = "files", required = false) List<MultipartFile> files) { // name이 files인 파일에서 여러 파일을 받는다.
+        if (errors.hasErrors()) return "posts/form"; // 입력 조건이 만족하지 않으면 저장하지 않고 작성 폼을 돌려준다.
+        // 글과 파의 저장을 service가 하고 저장된 게시물의 id를 받는다
+        // 파일 목록이 null이면 service가 다시 돌 수 있게 한다.
         Long id = posts.create(form, files == null ? List.of() : files);
+        // 저장된 게시글의 id로 상세 페이지 주소를 만들어서 브라우저로 이동
         return "redirect:/posts/" + id;
     }
 
