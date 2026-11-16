@@ -42,7 +42,7 @@ Spring Boot + Thymeleaf + JPA + MariaDB: 게시글 CRUD / 다중 첨부파일 �
 Project Information
 프로젝트 주제 및 주요 기능 - 파일을 첨부할 수 있는 게시판이다. 제공된 Sample Project를 실행하고 게시글 등록, 조회, 수정, 삭제와 파일 업로드, 다운로드를 확인했다. 상세 화면의 문구와 버튼 색상을 바꾸고 파일 타입을 추가했다. 첨부한 이미지를 상세 화면에서 바로 볼 수 있는 미리보기 기능도 구현했다.
 GitHub Repository URL - https://github.com/yejunkim0429/11week_assignment
-Render Deployment URL - 
+Render Deployment URL - https://one1week-assignment.onrender.com/posts
 
 Installation
 사용 환경 - Spring Boot, Thymeleaf, JPA, MariaDB를 사용했다.
